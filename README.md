@@ -14,21 +14,30 @@ This application allows you to manage books, handle borrow operations, and track
 - 📊 Aggregation pipeline to view borrowed book summary
 - 📘 Input validation using Mongoose
 - 🧩 Custom instance method for deducting book copies
-- 🧪 Middleware support (pre/post-save logic)
+- 🧪 Middleware support (post)
 
 ---
 
 ## 📁 Folder Structure
 
 ```
-.
-├── app.ts
-├── server.ts
-├── /app
-│   ├── /controllers
-│   ├── /models
-│   ├── /interfaces
-│   └── /validations
+├── node_modules/
+├── src/
+│   ├── app/                     # ✅ Application-specific logic
+│   │   ├── controllers          # ✅ Route handlers (books.controller.ts, borrow.controller.ts)
+│   │   ├── interfaces           # ✅ TypeScript interfaces (books.interface.ts, borrow.interface.ts)
+│   │   └── models               # ✅ Mongoose models (books.model.ts, borrow.model.ts)
+│   ├── app.ts                   # ✅ Express app configuration (import routes, middlewares)
+│   └── server.ts                # ✅ Entry point to start the server (calls app.listen)
+│
+├── package.json
+├── package-lock.json
+├── tsconfig.json
+├── vercel.json
+├── .gitignore
+└── README.md
+
+
 ```
 ---
 
@@ -36,9 +45,9 @@ This application allows you to manage books, handle borrow operations, and track
 
 - **Backend:** Express.js + TypeScript
 - **Database:** MongoDB (via Mongoose)
-- **Validation:** Mongoose Schema Validation
+- **Validation:** Mongoose Schema Validation, Zod
 - **Aggregation:** MongoDB aggregation pipeline
-- **Dev Tools:** Nodemon, ts-node
+- **Dev Tools:** ts-node-dev
 
 ---
 
@@ -158,9 +167,9 @@ Returns:
 
 | Command         | Description              |
 |-----------------|--------------------------|
-| `npm run dev`   | Start in dev mode (nodemon) |
-| `npm run build` | Compile TypeScript        |
-| `npm start`     | Start compiled app         |
+| `npm run dev`   | Start in dev mode with live reload (ts-node-dev) |
+| `npm run build` | Compile TypeScript to JavaScript (dist/ folder) |
+| `npm start`     | Start compiled app |
 
 ---
 
@@ -189,11 +198,3 @@ Returns:
   }
 }
 ```
-
----
-
-## 📮 Contact
-
-Made with ❤️ by [Sajib](https://github.com/Shahidullah-Kaisar)
-
----
