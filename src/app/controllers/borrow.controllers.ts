@@ -71,6 +71,9 @@ borrowRoutes.get('/', async (req: Request, res: Response) => {
           },
           totalQuantity: 1
         }
+      },
+      {
+        $sort: { totalQuantity: -1 }
       }
     ]);
 

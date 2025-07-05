@@ -78,6 +78,9 @@ exports.borrowRoutes.get('/', (req, res) => __awaiter(void 0, void 0, void 0, fu
                     },
                     totalQuantity: 1
                 }
+            },
+            {
+                $sort: { totalQuantity: -1 }
             }
         ]);
         const formatted = summary.map(item => ({
